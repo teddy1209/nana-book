@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/', router)
- 
-const server = app.listen(5000, function() {
+
+const server = app.listen(5000, function () {
     const host = server.address().address
     const port = server.address().port
   
@@ -34,7 +34,7 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app)
 const SSLPORT = 18082
 
-httpsServer.listen(SSLPORT, function() {
+httpsServer.listen(SSLPORT, function () {
     console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT)
 }) 
 
