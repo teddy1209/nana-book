@@ -13,7 +13,7 @@ if (env === 'dev') {
 } else if (env === 'prod') {
     host = '39.99.252.172'
     user = 'root',
-    password = '',
+    password = '1chtAJF8',
     database = 'book',
     port = 3306
 }

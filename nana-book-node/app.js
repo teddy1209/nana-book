@@ -16,15 +16,15 @@ app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.use('/', router)
+app.use('/api', router)
 
-const server = app.listen(5000, function () {
+const server = app.listen(5000, '0.0.0.0', function () {
     const host = server.address().address
     const port = server.address().port
   
     console.log('HTTP Server is running on http://%s:%s', host, port)
 })
-  
+
 const privateKey = fs.readFileSync('https/3241416_nanabook.xyz.key', 'utf8')
 const certificate = fs.readFileSync('https/3241416_nanabook.xyz.pem', 'utf8')
 const credentials = {
@@ -34,9 +34,9 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app)
 const SSLPORT = 18082
 
-httpsServer.listen(SSLPORT, function () {
+httpsServer.listen(SSLPORT, '0.0.0.0' ,function () {
     console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT)
-}) 
+})
 
 process.on('uncaughtException', function(err) {
     console.log('uncaughtException', err)

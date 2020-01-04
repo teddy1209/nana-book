@@ -38,6 +38,7 @@ router.use((req, res, next) => {
  * 第二，方法的必须放在路由最后
  */
 router.use((err, req, res, next) => {
+    console.log('err',err)
     if (err.name && err.name === 'UnauthorizedError') {
         const {status = 401} = err
         new Result(null, 'Token验证失败', {
